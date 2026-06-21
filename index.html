@@ -136,11 +136,51 @@
       </figure>
     </section>
 
+    <!-- Project detail view — expands from a card via a View Transition (Phase 3) -->
+    <section class="detail" id="detail" aria-hidden="true" aria-label="Project detail">
+      <div class="detail__bar">
+        <button class="detail__back" type="button" aria-label="Back to selected works">&larr;&nbsp; Back</button>
+        <span class="detail__idx"></span>
+      </div>
+
+      <div class="detail__grid">
+        <div class="detail__hero">
+          <img class="detail__img" alt="" />
+        </div>
+
+        <div class="detail__content">
+          <h2 class="detail__title" tabindex="-1"></h2>
+          <p class="detail__meta">
+            <span data-field="place"></span> &mdash; <span data-field="year"></span>
+          </p>
+          <p class="detail__text">
+            Conceived as a continuous section through landscape and structure, the project
+            negotiates mass and void to frame a deliberate sequence of arrival, threshold and
+            release. Material restraint — board-formed concrete, oak and glass — lets daylight
+            do the drawing, while the plan keeps a quiet civic generosity at its core.
+          </p>
+          <dl class="detail__specs">
+            <div><dt>Program</dt><dd data-field="program"></dd></div>
+            <div><dt>Location</dt><dd data-field="place"></dd></div>
+            <div><dt>Year</dt><dd data-field="year"></dd></div>
+            <div><dt>Status</dt><dd>Completed</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="detail__strip">
+        <img class="detail__sub" data-sub="b" alt="" />
+        <img class="detail__sub" data-sub="c" alt="" />
+      </div>
+    </section>
+
     <footer class="foot" id="contact">
       <span>&copy; 2026 Abeer Studio</span>
       <span>Oslo &middot; London</span>
       <a href="mailto:studio@abeeria.example">studio@abeeria.example</a>
     </footer>
   </main>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
