@@ -4,6 +4,7 @@
 **Status:** Concept (approved direction) — building a *concept clickthrough* prototype
 **Content domain:** Architecture studio / portfolio
 **Design posture:** Familiar core (masonry / grid feed) + novel, scroll-driven motion
+**Stack:** ✅ Static HTML / CSS / JS for the clickthrough prototype; to be ported to a **Next.js** app later.
 
 ---
 
@@ -83,7 +84,7 @@ This keeps the underlying browsing model conventional and instantly legible, whi
 - Sticky nav (2–3 grey links, right-aligned).
 - Hover lift (~10%).
 - Card → detail expand and back, via View Transitions.
-- A handful of placeholder architecture projects (enough to fill 2–3 rows).
+- A handful of placeholder architecture projects (enough to fill 2–3 rows), using **placeholder images from the internet** (Lorem Picsum, grayscale for a cohesive editorial look).
 
 **Out of scope (for now):**
 - CMS / backend / real content pipeline.
@@ -98,12 +99,18 @@ This keeps the underlying browsing model conventional and instantly legible, whi
 1. **Studio identity:** placeholder name/brand for the prototype? (e.g. a fictional "ATELIER —" studio.)
 2. **Card content:** image-only cards, or image + project title/location overlay?
 3. **Detail view content:** what fills the expanded view — a hero image + a few lines, or a small image set?
-4. **Stack:** plain HTML/CSS/JS single page (simplest, closest to the demos) vs. Next.js. For a pure clickthrough, a single static page is leanest; Next.js if we expect this to grow.
+4. **Stack:** ✅ Decided — static HTML/CSS/JS single page for the clickthrough; convert to a Next.js app later.
 5. **Scroll distance** for the scatter→settle: how much scroll "budget" the choreography occupies before the grid locks.
 
 ---
 
-## 7. References
+## 7. Implementation phases
+
+1. **Phase 1 — Grid layout + sticky nav.** Static three-column gallery (the resting state), sticky top nav with grey links, editorial hero with the studio name (top ~70–80%), placeholder images, hover lift (~10%). *(this phase)*
+2. **Phase 2 — Scatter → grid choreography.** Scroll-driven animation morphing the first 1–2 rows from a scattered state into the three-column grid, with `@supports` gating + reduced-motion + static fallback.
+3. **Phase 3 — Card → detail expand.** View Transitions API morphing a clicked card into a detail view and back, with dynamic `view-transition-name` assignment, focus routing, and reduced-motion handling.
+
+## 8. References
 
 - View Transitions demo — off the beaten path (SPA): https://view-transitions.chrome.dev/off-the-beaten-path/spa/
 - View Transitions demo — charming-crumble: https://charming-crumble-af45ba.netlify.app/
