@@ -32,6 +32,7 @@
   ];
 
   let lastFocused = null;
+  let savedScroll = 0;
 
   const canTransition = () => typeof document.startViewTransition === "function";
   const reducedMotion = () =>
@@ -79,6 +80,7 @@
 
   async function openDetail(card) {
     lastFocused = card.querySelector(".card__media");
+    savedScroll = window.scrollY; // restored on close so the reverse morph lands on the card
     const d = readCard(card);
     applyText(d);
 
@@ -109,7 +111,10 @@
   }
 
   function closeDetail() {
-    const mutate = () => document.body.classList.remove("detail-open");
+    const mutate = () => {
+      document.body.classList.remove("detail-open");
+      window.scrollTo(0, savedScroll); // return the grid to where it was before opening
+    };
 
     if (!canTransition() || reducedMotion()) {
       mutate();
